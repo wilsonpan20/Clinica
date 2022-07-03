@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const PetController = require('../controllers/PetController')
+const PatientController = require('../controllers/PatientController')
 
 // middlewares
 const verifyToken = require('../helpers/check-token')
@@ -10,20 +10,18 @@ router.post(
   '/create',
   verifyToken,
   imageUpload.array('images'),
-  PetController.create,
+  PatientController.create,
 )
-router.get('/', PetController.getAll)
-router.get('/mypets', PetController.getAllUserPets)
-router.get('/myadoptions', verifyToken, PetController.getAllUserAdoptions)
-router.get('/:id', PetController.getPetById)
-router.delete('/:id', verifyToken, PetController.removePetById)
+router.get('/', PatientController.getAll)
+router.get('/:id', PatientController.getPatientById)
+router.delete('/:id', verifyToken, PatientController.removePatientyId)
 router.patch(
   '/:id',
   verifyToken,
   imageUpload.array('images'),
-  PetController.updatePet,
+  PatientController.updatePatient
 )
-router.patch('/schedule/:id', verifyToken, PetController.schedule)
-router.patch('/conclude/:id', verifyToken, PetController.concludeAdoption)
+router.patch('/schedule/:id', verifyToken, PatientController.schedule)
+router.patch('/conclude/:id', verifyToken, PatientController.concludeAdoption)
 
 module.exports = router

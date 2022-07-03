@@ -82,9 +82,6 @@ module.exports = class PatientController {
       patients,
     })
   }
-
-
-
   
   static async getPatientById(req, res) {
     const id = req.params.id
