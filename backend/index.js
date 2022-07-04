@@ -14,10 +14,10 @@ app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 app.use(express.static('public'))
 
 // Routes
-const PatientRoutes = require('./routes/PatientRoutes')
+//const PatientRoutes = require('./routes/PatientRoutes')
 const UserRoutes = require('./routes/UserRoutes')
 
-app.use('/patient', PatientRoutes)
+//app.use('/patient', PatientRoutes)
 app.use('/users', UserRoutes)
 
 app.listen(port,()=> console.log(`Serviço rodando na porta${port}`))
